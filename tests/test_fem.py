@@ -1,5 +1,6 @@
 import pytest
 from FEM import fem
+import numpy as np
 
 
 def test_local_elastic_stiffness_matrix_3D_beam():

@@ -1,5 +1,5 @@
 import numpy as np
-import utils as MSA
+from FEM import utils as MSA
 
 class Node:
     def __init__(self, coords: np.array, BCs: np.ndarray(6) == None, loads: np.zeros(6), id):

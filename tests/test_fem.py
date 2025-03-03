@@ -34,6 +34,13 @@ def test_fem():
     assert isinstance(fem_model.BC_vec(), np.ndarray)
     assert isinstance(fem_model.force_vec(), np.ndarray)
 
+    fem_info = fem_model.fem_info()
+    assert isinstance(fem_info, tuple)
+    assert len(fem_info) == 3
+    assert isinstance(fem_info[0], np.ndarray)  # Big_K
+    assert isinstance(fem_info[1], np.ndarray)  # BC_vec
+    assert isinstance(fem_info[2], np.ndarray)  # force_vec
+
 def test_solver():
     num_nodes, dof_per_node = 2, 6
     K = np.eye(12) * 1000

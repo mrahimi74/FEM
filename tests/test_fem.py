@@ -8,7 +8,7 @@ def test_node():
     BCs = np.array([1, 0, 0, 1, 0, 1])
     loads = np.array([0, 0, -10, 0, 0, 0])
     node = fem.Node(coords, BCs, loads, id=1)
-    assert fem.node.nodal_info() == (coords, BCs, loads, 1)
+    assert node.nodal_info() == (coords, BCs, loads, 1)
 
 def test_element():
     E, nu, A, Iy, Iz, J = 210e9, 0.3, 0.02, 1e-6, 1e-6, 5e-6

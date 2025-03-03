@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "FEM"
 version = "0.0.0"
 authors = [
-  { name="Mohamad Rahimi", email="mrahimi@bu.edu" },
+  { name="Mohamad Rahimi", email="mr-rahimi@outlook.com" },
 ]
 description = "FEM workflow"
 readme = "README.md"

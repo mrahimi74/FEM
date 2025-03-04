@@ -22,13 +22,16 @@ To be written
 
 ---
 
-### Bisection Method Algorithm <a name="algo"></a>
+### FEM Algorithm <a name="algo"></a>
 
-The **Bisection Method** is a numerical technique to find roots of a continuous function f(x). The method works by repeatedly dividing an interval [a, b] in half and selecting the subinterval in which the root lies. The algorithm for the Bisection Method is as follows:
+The **FEM** is a numerical method to solve partial differential equations.
 
-1. **Choose an interval $[a, b]$**:
-   - choose $[a, b]$ such that $f(a) \cdot f(b) < 0$, which means the function has a root in the interval.
-2. **Compute the midpoint**:
+1. **Define node information using Node class**:
+   - You should enter the coordinates, boundary conditions and loading conditions.
+   - Note that BCs is a 1*6 array containing True and False. True is for known and False for unknown DoFs.
+   - Loads is also a 1*6 array, the first three of which are loads and the other are moments.
+   - Finally, you should enter the id of that node which is an integer. (i.e 1 or 2 ...)
+2. **Element class**:
    - $c = \frac{a + b}{2}$
 3. **Check the sign of $f(c)$**:
    - If $f(c) = 0$, then $c$ is the root.
@@ -36,17 +39,6 @@ The **Bisection Method** is a numerical technique to find roots of a continuous 
    - Otherwise, the root lies in $[c, b]$. Update $a = c$.
 4. **Repeat** until the interval size $|b - a|$ is smaller than the desired tolerance or $f(c)$ is smaller than the desired tolerance.
 
-**Advantages of the Bisection Method**:
-1. **Simplicity**: The method is easy to understand and implement.
-2. **Guaranteed Convergence**: If the function $f(x)$ is continuous and $f(a) \cdot f(b) < 0$, the method is guaranteed to converge to a root.
-3. **Robustness**: It works well for a wide range of functions without requiring derivatives or complex calculations.
-4. **Predictable Behavior**: The error decreases by approximately half in each iteration, providing predictable convergence.
-
-**Limitations of the Bisection Method**:
-1. **Slow Convergence**: Compared to other methods like Newton-Raphson or secant, the bisection method can converge more slowly.
-2. **Requires Bracketing**: The method requires an interval $[a, b]$ where $f(a) \cdot f(b) < 0$, which may not always be easy to identify.
-3. **Limited Precision**: The method converges linearly, which may not be efficient for high-precision requirements.
-4. **Not Suitable for Multiple Roots**: The method may fail or behave inconsistently if the function has multiple roots within the interval.
 5. **Function Continuity Required**: It assumes $f(x)$ is continuous in $[a, b]$, and any discontinuities can cause issues.
 
 ---

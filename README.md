@@ -26,18 +26,21 @@ To be written
 
 The **FEM** is a numerical method to solve partial differential equations.
 
-1. **Define node information using Node class**:
+1. **Node class**:
    - You should enter the coordinates, boundary conditions and loading conditions.
    - Note that BCs is a 1*6 array containing True and False. True is for known and False for unknown DoFs.
    - Loads is also a 1*6 array, the first three of which are loads and the other are moments.
-   - Finally, you should enter the id of that node which is an integer. (i.e 1 or 2 ...)
+   - You should enter the id of that node which is an integer. (i.e 1 or 2 ...)
+   - Finally, this class gives you the coordinates, Bcs, Loads and id of that specific node.
 2. **Element class**:
-   - $c = \frac{a + b}{2}$
-3. **Check the sign of $f(c)$**:
-   - If $f(c) = 0$, then $c$ is the root.
-   - If $f(a) \cdot f(c) < 0$, the root lies in $[a, c]$. Update $b = c$.
-   - Otherwise, the root lies in $[c, b]$. Update $a = c$.
-4. **Repeat** until the interval size $|b - a|$ is smaller than the desired tolerance or $f(c)$ is smaller than the desired tolerance.
+   - First, you should enter the mechanical properties of the element.
+   - You should also enter an array containing the id of both nodes in the element.
+   - Using Element.el_info() method, you can get the stiffness matrix and the number of that element.
+3. **Fem class$**:
+   - Depending on how many elements you have, you should make an array for stiffness matrices of the elements, boundary conditions and loads of the nodes.
+   - Finally, you need to creat an id array for the connectivity of elements.
+   - The class gives the assembled stiffness matrix, BCs and Loading condition arrays of whole nodes.
+4. **Repeat**:
 
 5. **Function Continuity Required**: It assumes $f(x)$ is continuous in $[a, b]$, and any discontinuities can cause issues.
 
